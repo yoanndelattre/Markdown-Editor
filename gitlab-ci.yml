@@ -1,0 +1,78 @@
+image: yoanndelattre/nodejs
+
+variables:
+    PASSWD: website123
+    USER: web
+    FOLDER_NAME: Markdown-Editor
+
+before_script:
+    - apt-get update
+    - apt-get upgrade -y
+    - pwd
+    - ls -a
+
+cache:
+    paths:
+    - node_modules/
+    - build/
+
+stages:
+    - install
+    - test
+    - build
+    - deploy
+
+
+install_dependencies:
+    stage: install
+    retry: 1
+    script:
+        - npm install
+
+test:
+    stage: test
+    retry: 1
+    script:
+        - npm test
+    except:
+        - master
+        
+optional-test:
+    stage: test
+    retry: 1
+    allow_failure: true
+    script:
+        - npm test
+    only:
+        - master
+
+build:
+    stage: build
+    retry: 1
+    script:
+        - npm run build
+    only:
+        - master
+        
+deploy:
+    image: yoanndelattre/base:latest
+    retry: 1
+    stage: deploy
+    before_script:
+        - apt-get update
+        - apt-get upgrade -y
+        - apt-get install -y cifs-utils
+    script:
+        - pwd
+        - mkdir ./deploy
+        - ls -a ./deploy/
+        - mount -t cifs -o username=$USER,password=$PASSWD,file_mode=0777,dir_mode=0777,rw //nas-sensation.synology.me/Website/Website/$FOLDER_NAME ./deploy
+        - ls -a ./deploy/
+        - rm -rf ./deploy/*
+        - cp -r ./build/* ./deploy/
+        - ls -a ./deploy/
+    after_script:
+        - umount -a -t cifs -l
+        - ls -a ./deploy/
+    only:
+        - master

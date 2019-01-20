@@ -50,6 +50,7 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <a className='report-problem' href="mailto:yoanndelattre21@gmail.com">Report a Problem</a>
       </div>
     );
   }

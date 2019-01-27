@@ -27,8 +27,10 @@ initialization:
     only:
         - master
     script:
-        - mkdir /prod
-        - cp -r . /prod/
+        - mkdir ./prod
+        - cp -r ./public ./prod/
+        - cp -r ./src ./prod/
+        - cp -r *.json ./prod/
     
 install_dependencies:
     stage: install
@@ -69,7 +71,7 @@ deploy:
         - ls -a ./deploy/
         - rm -rf ./deploy/*
         - rm -rf ./deploy/.*
-        - cp -r /prod/* ./deploy/
+        - cp -r ./prod/* ./deploy/
         - ls -a ./deploy/
     after_script:
         - umount -a -t cifs -l

@@ -27,7 +27,6 @@ initialization:
     only:
         - master
     script:
-        - mkdir ./prod
         - cp -r ./public ./prod/
         - cp -r ./src ./prod/
         - cp -r *.json ./prod/

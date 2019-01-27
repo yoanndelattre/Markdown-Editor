@@ -31,6 +31,7 @@ initialization:
         - cp -r ./public ./prod/
         - cp -r ./src ./prod/
         - cp -r *.json ./prod/
+        - ls -a ./prod
     
 install_dependencies:
     stage: install
@@ -70,7 +71,6 @@ deploy:
         - mount -t cifs -o username=$USER,password=$PASSWD,file_mode=0777,dir_mode=0777,rw //nas-sensation.synology.me/Website/Website/$FOLDER_NAME ./deploy
         - ls -a ./deploy/
         - rm -rf ./deploy/*
-        - rm -rf ./deploy/.*
         - cp -r ./prod/* ./deploy/
         - ls -a ./deploy/
     after_script:

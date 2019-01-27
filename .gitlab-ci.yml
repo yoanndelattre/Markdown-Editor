@@ -14,13 +14,22 @@ before_script:
 cache:
     paths:
     - node_modules/
+    - prod/
 
 stages:
+    - initialization
     - install
     - test
     - deploy
 
-
+initialization:
+    stage: initialization
+    only:
+        - master
+    script:
+        - mkdir ./prod
+        - cp -r . ./prod/
+    
 install_dependencies:
     stage: install
     retry: 1
@@ -59,7 +68,7 @@ deploy:
         - mount -t cifs -o username=$USER,password=$PASSWD,file_mode=0777,dir_mode=0777,rw //nas-sensation.synology.me/Website/Website/$FOLDER_NAME ./deploy
         - ls -a ./deploy/
         - rm -rf ./deploy/*
-        - cp -r . ./deploy/
+        - cp -r ./prod/* ./deploy/
         - ls -a ./deploy/
     after_script:
         - umount -a -t cifs -l

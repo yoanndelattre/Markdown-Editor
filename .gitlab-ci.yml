@@ -14,12 +14,10 @@ before_script:
 cache:
     paths:
     - node_modules/
-    - build/
 
 stages:
     - install
     - test
-    - build
     - deploy
 
 
@@ -45,14 +43,6 @@ optional-test:
         - npm test
     only:
         - master
-
-build:
-    stage: build
-    retry: 1
-    script:
-        - npm run build
-    only:
-        - master
         
 deploy:
     image: yoanndelattre/base:latest
@@ -69,7 +59,7 @@ deploy:
         - mount -t cifs -o username=$USER,password=$PASSWD,file_mode=0777,dir_mode=0777,rw //nas-sensation.synology.me/Website/Website/$FOLDER_NAME ./deploy
         - ls -a ./deploy/
         - rm -rf ./deploy/*
-        - cp -r ./build/* ./deploy/
+        - cp -r . ./deploy/
         - ls -a ./deploy/
     after_script:
         - umount -a -t cifs -l

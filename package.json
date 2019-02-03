@@ -2,6 +2,7 @@
   "name": "markdown-editor",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://markdown-editor.nas-sensation.synology.me",
   "dependencies": {
     "bootstrap": "^4.2.1",
     "marked": "^0.6.0",

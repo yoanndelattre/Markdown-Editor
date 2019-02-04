@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": ".",
+  "main": "index.js",
   "dependencies": {
     "bootstrap": "^4.2.1",
     "marked": "^0.6.0",

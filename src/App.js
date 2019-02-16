@@ -33,6 +33,10 @@ class App extends Component {
     return{ __html }
   }
 
+  handleClear = () => {
+    this.setState ({ text: sampleText })
+  }
+
   render() {
     return (
       <div className="container">
@@ -51,6 +55,7 @@ class App extends Component {
           </div>
         </div>
         <a className='report-problem' href="mailto:contact@yoanndelattre.com">Report a Problem</a>
+        <button className="clear-text-cache" onClick={this.handleClear}>Clear Text Cache</button>
       </div>
     );
   }

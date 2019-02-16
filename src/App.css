@@ -26,3 +26,24 @@
     box-shadow: 1px 1px 10px rgb(255, 0, 0) inset, 0 1px 0 rgba(255, 0, 0, 0); 
     outline-style:none;
 }
+/*---------------------------------------------------------------*/
+.clear-text-cache {
+    color: #fff;
+    text-transform: uppercase;
+    background: #413232;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.clear-text-cache:hover {
+    background: #434343;
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+}

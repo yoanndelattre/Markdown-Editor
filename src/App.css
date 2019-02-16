@@ -37,6 +37,9 @@
     border: none;
     cursor: pointer;
     text-decoration: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
 }
 
 .clear-text-cache:hover {

@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   handleClear = () => {
-    console.log('clear')
+    this.setState ({ text: sampleText })
   }
 
   render() {

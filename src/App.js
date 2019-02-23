@@ -51,7 +51,7 @@ class App extends Component {
             </textarea>
           </div>
           <div className="col-sm-6">
-            <div dangerouslySetInnerHTML={this.rendertext(this.state.text) }>
+            <div dangerouslySetInnerHTML={this.rendertext(this.state.text)}>
             </div>
           </div>
         </div>

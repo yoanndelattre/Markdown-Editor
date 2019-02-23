@@ -34,7 +34,8 @@ class App extends Component {
   }
 
   handleClear = () => {
-    this.setState ({ text: sampleText })
+    this.setState({ text: sampleText })
+    localStorage.removeItem('text')
   }
 
   render() {

@@ -55,7 +55,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <a className='report-problem' href="https://github.com/yoanndelattre/Markdown-Editor/issues">Report a Problem</a>
+        <a className='report-problem' target="blank" href="https://github.com/yoanndelattre/Markdown-Editor/issues">Report a Problem</a>
         <button className="clear-text-cache" onClick={this.handleClear}>Clear Text Cache</button>
       </div>
     );

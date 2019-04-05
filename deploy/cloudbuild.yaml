@@ -11,3 +11,11 @@ steps:
 - id: "Sync static files in bucket"
   name: 'gcr.io/cloud-builders/gsutil'
   args: ['-m', 'rsync', '-d', '-r', './build/', 'gs://website_markdown-builded/']
+
+- id: "Download git repo for config App Engine"
+  name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://source.developers.google.com/p/markdown-236511/r/Config-App-Engine-Markdown']
+  
+- id: "DEPLOY ON APP ENGINE"
+  name: 'gcr.io/cloud-builders/gcloud'
+  args: ['builds', 'submit', '--config', './Config-App-Engine-Markdown/master/cloudbuildDeploy.yaml', './Config-App-Engine-Markdown/']

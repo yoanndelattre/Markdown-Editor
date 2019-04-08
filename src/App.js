@@ -41,6 +41,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <h1>Markdown Translator</h1>
         <div className="row">
           <div className="col-sm-6">
             <textarea

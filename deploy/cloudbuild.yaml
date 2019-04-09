@@ -1,5 +1,13 @@
 steps:
 
+- id: "Copy robots.txt file"
+  name: 'gcr.io/cloud-builders/gsutil'
+  args: ['cp', "gs://analytics_markdown-box-config/robots.txt", "./public/"]
+
+- id: "Copy sitemap.xml file"
+  name: 'gcr.io/cloud-builders/gsutil'
+  args: ['cp', "gs://analytics_markdown-box-config/sitemap.xml", "./public/"]
+
 - id: "install dependency"
   name: 'gcr.io/cloud-builders/npm'
   args: ['install']

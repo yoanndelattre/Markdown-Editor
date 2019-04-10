@@ -12,7 +12,7 @@ steps:
   name: 'gcr.io/cloud-builders/npm'
   args: ['install']
 
-- id: "build static files"
+- id: "Build static files"
   name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build']
 

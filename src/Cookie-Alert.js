@@ -13,7 +13,7 @@ class CookieAlert extends Component {
         if (window.innerWidth <= 768) {
             return (
                 <CookieBanner
-                    message="Ce site utilise des cookies."
+                    message="This website uses cookies."
                     cookie="user-accept-cookies"
                     buttonMessage="Accepter"
                     dismissOnScroll={this.state.dismissOnScroll} 
@@ -39,7 +39,7 @@ class CookieAlert extends Component {
 
         return (
             <CookieBanner
-                message="Ce site utilise des cookies."
+                message="This website uses cookies."
                 cookie="user-accept-cookies"
                 buttonMessage="Accepter"
                 dismissOnScroll={this.state.dismissOnScroll} 

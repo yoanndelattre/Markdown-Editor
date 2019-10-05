@@ -10,16 +10,16 @@ steps:
 
 - id: "Download Express server"
   name: 'gcr.io/cloud-builders/git'
-  args: ['clone', 'https://source.developers.google.com/p/markdown-236511/r/github_yoanndelattre_express-server-gcp', './master/github_yoanndelattre_express-server-gcp']
+  args: ['clone', 'https://source.developers.google.com/p/markdown-236511/r/github_yoanndelattre_express-server-gcp', './webserver_prod']
 
 - id: "Move Website Markdown Project folder"
   name: 'alpine'
-  args: ['sh', '-c', 'cp -rf ./build/. ./master/github_yoanndelattre_express-server-gcp/app_files/']
+  args: ['sh', '-c', 'cp -rf ./build/. ./webserver_prod/app_files/']
 
-- id: "Move WebsiteMarkdownConfigAppEngine.yaml in github_yoanndelattre_express-server-gcp folder"
+- id: "Move WebsiteMarkdownConfigAppEngine.yaml in webserver_prod folder"
   name: 'alpine'
-  args: ['sh', "-c", 'mv ./deploy/WebsiteMarkdownConfigAppEngine.yaml ./master/github_yoanndelattre_express-server-gcp/']
+  args: ['sh', "-c", 'mv ./deploy/WebsiteMarkdownConfigAppEngine.yaml ./webserver_prod/']
 
 - id: "DEPLOY APP ENGINE"
   name: 'gcr.io/cloud-builders/gcloud'
-  args: ['app', 'deploy', './master/github_yoanndelattre_express-server-gcp/WebsiteMarkdownConfigAppEngine.yaml', './deploy/dispatch.yaml', '--version=1']
+  args: ['app', 'deploy', './webserver_prod/WebsiteMarkdownConfigAppEngine.yaml', './deploy/dispatch.yaml', '--version=1']

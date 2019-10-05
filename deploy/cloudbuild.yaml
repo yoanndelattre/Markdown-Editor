@@ -13,12 +13,12 @@ steps:
   args: ['clone', 'https://source.developers.google.com/p/markdown-236511/r/github_yoanndelattre_express-server-gcp', './master/github_yoanndelattre_express-server-gcp']
 
 - id: "Move Website Markdown Project folder"
-  name: 'debian'
-  args: ['bash', '-c', 'cp -rf ./build/. ./master/github_yoanndelattre_express-server-gcp/app_files/']
+  name: 'alpine'
+  args: ['sh', '-c', 'cp -rf ./build/. ./master/github_yoanndelattre_express-server-gcp/app_files/']
 
 - id: "Move WebsiteMarkdownConfigAppEngine.yaml in github_yoanndelattre_express-server-gcp folder"
-  name: 'gcr.io/cloud-builders/gsutil'
-  args: ['mv', './deploy/WebsiteMarkdownConfigAppEngine.yaml', './master/github_yoanndelattre_express-server-gcp/']
+  name: 'alpine'
+  args: ['sh', "-c", 'mv ./deploy/WebsiteMarkdownConfigAppEngine.yaml ./master/github_yoanndelattre_express-server-gcp/']
 
 - id: "DEPLOY APP ENGINE"
   name: 'gcr.io/cloud-builders/gcloud'

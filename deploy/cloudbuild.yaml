@@ -12,13 +12,9 @@ steps:
   name: 'gcr.io/cloud-builders/git'
   args: ['clone', 'https://source.developers.google.com/p/markdown-236511/r/github_yoanndelattre_express-server-gcp', './master/github_yoanndelattre_express-server-gcp']
 
-- id: "Create app_files folder"
-  name: 'ubuntu'
-  args: ['bash', './master/github_yoanndelattre_express-server-gcp/deploy/CreateFolderApp.sh']
-
 - id: "Move Website Markdown Project folder"
-  name: 'gcr.io/cloud-builders/gsutil'
-  args: ['rsync', '-d', '-r', './build/.', './master/github_yoanndelattre_express-server-gcp/app_files/']
+  name: 'debian'
+  args: ['bash', '-c', 'cp -rf ./build/. ./master/github_yoanndelattre_express-server-gcp/app_files/']
 
 - id: "Move WebsiteMarkdownConfigAppEngine.yaml in github_yoanndelattre_express-server-gcp folder"
   name: 'gcr.io/cloud-builders/gsutil'

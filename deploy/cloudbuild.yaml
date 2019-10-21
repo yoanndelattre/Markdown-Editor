@@ -1,25 +1,17 @@
 steps:
 
-- id: "install dependency"
-  name: 'gcr.io/cloud-builders/npm'
-  args: ['install']
+- id: "Pull app image"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['pull', 'gcr.io/markdown-project-256618/markdown:latest']
 
-- id: "Build static files"
-  name: 'gcr.io/cloud-builders/npm'
-  args: ['run', 'build']
+- id: "Build app image"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/markdown-project-256618/markdown:latest', '.']
 
-- id: "Download Express server"
-  name: 'gcr.io/cloud-builders/git'
-  args: ['clone', 'https://source.developers.google.com/p/markdown-236511/r/github_yoanndelattre_express-server-gcp', './webserver_prod']
+- id: "Push app image"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/markdown-project-256618/markdown:latest']
 
-- id: "Move Website Markdown Project folder"
-  name: 'alpine'
-  args: ['sh', '-c', 'cp -rf ./build/. ./webserver_prod/app_files/']
-
-- id: "Move WebsiteMarkdownConfigAppEngine.yaml in webserver_prod folder"
-  name: 'alpine'
-  args: ['sh', "-c", 'mv ./deploy/WebsiteMarkdownConfigAppEngine.yaml ./webserver_prod/']
-
-- id: "DEPLOY APP ENGINE"
+- id: "Deploy new app image"
   name: 'gcr.io/cloud-builders/gcloud'
-  args: ['app', 'deploy', './webserver_prod/WebsiteMarkdownConfigAppEngine.yaml', './deploy/dispatch.yaml', '--version=1']
+  args: ['beta', 'run', 'deploy', 'file-private', 'gcr.io/markdown-project-256618/markdown:latest', '--region=us-central1', '--allow-unauthenticated', '--concurrency=30', '--platform=managed', '--timeout=1m']

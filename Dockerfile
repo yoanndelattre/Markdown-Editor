@@ -7,6 +7,7 @@ RUN npm run build
 FROM nginx:alpine
 COPY Contents-image/default /etc/nginx/conf.d/default.conf
 COPY Contents-image/docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 COPY --from=builder /app/build/. /usr/share/nginx/html/
 EXPOSE $PORT
 ENTRYPOINT ["/docker-entrypoint.sh"]

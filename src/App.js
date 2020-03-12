@@ -3,6 +3,7 @@ import './App.css';
 import { sampleText } from './sampleText';
 import marked from 'marked';
 import CookieAlert from './Cookie-Alert'
+import insane from 'insane'
 
 class App extends Component {
   state = {
@@ -30,7 +31,7 @@ class App extends Component {
   }
 
   rendertext = text => {
-    const __html = marked(text, { sanitize: true })
+    const __html = insane(marked(text))
     return{ __html }
   }
 

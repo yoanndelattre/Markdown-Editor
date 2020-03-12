@@ -4,6 +4,7 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
     "bootstrap": "^4.4.1",
     "marked": "^0.8.0",
     "react": "^16.13.0",

@@ -45,7 +45,7 @@ class App extends Component {
       <Fragment>
         <CookieAlert/>
         <div className="container">
-          <h1>Markdown Translator</h1>
+          <h1>Markdown Editor</h1>
           <div className="row">
             <div className="col-sm-6">
               <textarea

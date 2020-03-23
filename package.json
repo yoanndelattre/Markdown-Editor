@@ -9,11 +9,11 @@
     "@testing-library/user-event": "^10.0.0",
     "bootstrap": "^4.4.1",
     "insane": "^2.6.2",
-    "marked": "^0.8.0",
-    "react": "^16.13.0",
+    "marked": "^0.8.2",
+    "react": "^16.13.1",
     "react-cookie-banner": "^4.1.0",
     "react-dom": "^16.13.0",
-    "react-scripts": "^3.4.0"
+    "react-scripts": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

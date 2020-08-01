@@ -5,7 +5,7 @@
   "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.0",
-    "@testing-library/react": "^10.4.3",
+    "@testing-library/react": "^10.4.7",
     "@testing-library/user-event": "^12.1.0",
     "bootstrap": "^4.5.0",
     "insane": "^2.6.2",

@@ -2,7 +2,7 @@ steps:
 
 - id: "Import index.html prod file"
   name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp', 'gs://markdown-editor_website_conf/index.html', './public/']
+  args: ['cp', 'gs://markdown_website_conf/index.html', './public/']
 
 - id: "Build app image"
   name: 'gcr.io/cloud-builders/docker'

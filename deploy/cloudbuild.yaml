@@ -6,14 +6,14 @@ steps:
 
 - id: "Build app image"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/markdown-287711/markdown:latest', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/markdown:latest', '.']
 
 - id: "Push app image"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/markdown-287711/markdown:latest']
+  args: ['push', 'gcr.io/$PROJECT_ID/markdown:latest']
 
 - id: "Deploy new app image"
   name: 'gcr.io/cloud-builders/gcloud'
-  args: ['run', 'deploy', 'markdown', '--image=gcr.io/markdown-287711/markdown:latest', '--region=us-central1', '--allow-unauthenticated', '--concurrency=30', '--platform=managed', '--timeout=30s', '--max-instances=50', '--memory=256Mi', '--cpu=1']
+  args: ['run', 'deploy', 'markdown', '--image=gcr.io/$PROJECT_ID/markdown:latest', '--region=us-central1', '--allow-unauthenticated', '--concurrency=30', '--platform=managed', '--timeout=30s', '--max-instances=50', '--memory=256Mi', '--cpu=1']
 
 timeout: 300s

@@ -1,7 +1,7 @@
 FROM node:lts-alpine as builder
 COPY . /app
 WORKDIR /app
-RUN npm install
+RUN npm install --production
 RUN npm run build
 
 FROM nginx:alpine

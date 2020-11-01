@@ -5,9 +5,9 @@
   "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
-    "@testing-library/react": "^11.0.4",
-    "@testing-library/user-event": "^12.1.6",
-    "bootstrap": "^4.5.2",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "bootstrap": "^4.5.3",
     "insane": "^2.6.2",
     "marked": "^1.2.0",
     "react": "^16.13.1",
@@ -42,6 +42,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-plugin-react": "^7.21.2"
+    "eslint-plugin-react": "^7.21.5"
   }
 }

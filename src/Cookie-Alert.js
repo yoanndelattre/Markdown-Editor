@@ -13,7 +13,7 @@ class CookieAlert extends Component {
           <CookieBanner
             message="This website uses cookies."
             cookie="user-accept-cookies"
-            buttonMessage="Accepter"
+            buttonMessage="Accept"
             dismissOnScroll={this.state.dismissOnScroll}
             styles={{
               banner: {
@@ -39,7 +39,7 @@ class CookieAlert extends Component {
         <CookieBanner
           message="This website uses cookies."
           cookie="user-accept-cookies"
-          buttonMessage="Accepter"
+          buttonMessage="Accept"
           dismissOnScroll={this.state.dismissOnScroll}
           styles={{
             banner: {

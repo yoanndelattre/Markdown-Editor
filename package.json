@@ -10,9 +10,9 @@
     "bootstrap": "^4.6.0",
     "insane": "^2.6.2",
     "marked": "^2.0.1",
-    "react": "^17.0.1",
+    "react": "^17.0.2",
     "react-cookie-banner": "^4.1.0",
-    "react-dom": "^17.0.1",
+    "react-dom": "^17.0.2",
     "react-scripts": "^4.0.3"
   },
   "scripts": {

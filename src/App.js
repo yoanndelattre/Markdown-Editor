@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import './App.css';
 import {sampleText} from './sampleText';
-import marked from 'marked';
+import {marked} from 'marked';
 import CookieAlert from './Cookie-Alert';
 import insane from 'insane';
 
@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   rendertext = (text) => {
-    const __html = insane(marked(text));
+    const __html = insane(marked.parse(text));
     return {__html};
   }
 

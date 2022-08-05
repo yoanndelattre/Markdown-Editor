@@ -2,7 +2,6 @@ import React, {Component, Fragment} from 'react';
 import './App.css';
 import {sampleText} from './sampleText';
 import {marked} from 'marked';
-import CookieAlert from './Cookie-Alert';
 import insane from 'insane';
 
 class App extends Component {
@@ -42,7 +41,6 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <CookieAlert/>
         <div className="container">
           <h1>Markdown Editor</h1>
           <div className="row">

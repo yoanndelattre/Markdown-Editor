@@ -1,5 +1,4 @@
 User-agent: *
-Allow: /
 
 # Sitemap files
 Sitemap: https://markdown.yoanndelattre.com/sitemap.xml

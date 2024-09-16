@@ -2,14 +2,14 @@ steps:
 
 - id: "Build app image"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/$REPO_FULL_NAME/$REPO_NAME:$REVISION_ID', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/$REPO_NAME:$SHORT_SHA', '.']
 
 - id: "Push app image"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/$REPO_FULL_NAME/$REPO_NAME:$REVISION_ID']
+  args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/$REPO_NAME:$SHORT_SHA']
 
 - id: "Deploy new app image"
   name: 'gcr.io/cloud-builders/gcloud'
-  args: ['run', 'deploy', 'markdown', '--image=us-central1-docker.pkg.dev/$PROJECT_ID/$REPO_FULL_NAME/$REPO_NAME:$REVISION_ID', '--region=us-central1', '--allow-unauthenticated', '--concurrency=130', '--platform=managed', '--timeout=10s', '--max-instances=50', '--min-instances=0', '--memory=256Mi', '--cpu=2']
+  args: ['run', 'deploy', 'markdown', '--image=us-central1-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/$REPO_NAME:$SHORT_SHA', '--region=us-central1', '--allow-unauthenticated', '--concurrency=130', '--platform=managed', '--timeout=10s', '--max-instances=50', '--min-instances=0', '--memory=256Mi', '--cpu=2']
 
 timeout: 300s
